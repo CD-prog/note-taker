@@ -14,7 +14,10 @@ npm install -> node server
 
 ## Usage
 Run application in terminal with 'node sever' then open http://localhost:8080/ in browser
-or visit the deployed app on Heroku
+
+or
+
+Visit the deployed app on Heroku
 
 https://intense-citadel-84040.herokuapp.com/
 
