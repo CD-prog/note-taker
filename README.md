@@ -4,14 +4,17 @@
 # note-taker
 
 ## Description
-JavaScript application for adding, saving and deleting notes
+JavaScript application for adding, saving and deleting notes.
+Uses Node.js, Express, File System, HTML, CSS, Bootstrap and Heroku
 
 <img src="./public/assets/screen-shot.png">
 
 ## Installation
 npm install -> node server
 
-## Usage information
+## Usage
+Run application in terminal with 'node sever' then open http://localhost:8080/ in browser
+or
 https://intense-citadel-84040.herokuapp.com/
 
 ## License
