@@ -15,7 +15,7 @@ const readData = () => {
     notes = JSON.parse(data);
     return notes;
 }
-const writeData = (notes) => fs.writeFile(path.join(__dirname, './db/db.json'), JSON.stringify(notes), err=>{
+const writeData = (notes) => fs.writeFileSync(path.join(__dirname, './db/db.json'), JSON.stringify(notes), err=>{
     if (err){
         console.log(err)
     }
@@ -30,7 +30,7 @@ app.get('/api/notes', (req, res) => res.json(readData()));
 // add new note 
 app.post('/api/notes',(req,res)=> {
 let data = readData();
-let highest = 0;
+let highest = -1;
 for (let index = 0; index < data.length; index++) {
     const id = data[index].id;
     if(id > highest){
@@ -45,11 +45,13 @@ res.json(data);
 
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
 
-
 // delete  note
 app.delete('/api/notes/:id', (req, res) => {
-   
-    
+    const noteId = parseInt(req.params.id);
+    readData();
+    notes.splice(noteId,1);
+    writeData(notes);
+    res.json(notes);
 });
 
 
